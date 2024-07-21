@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab10</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+{% comment %} <style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style> {% endcomment %}
+<body>
+    <div class="flex flex-col">
+        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                <div class="overflow-hidden">
+                    <table class="min-w-full text-left text-sm font-light text-surface dark:text-white">
+                        <thead class="border-b border-neutral-200 font-medium dark:border-white/10">
+                            <tr>
+                                <th scope="col" class="px-6 py-4">Name</th>
+                                <th scope="col" class="px-6 py-4">USN</th>
+                                <th scope="col" class="px-6 py-4">Course</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for student in object_list %}
+                            <tr class="border-b border-neutral-200 dark:border-white/10">
+                                <td class="whitespace-nowrap px-6 py-4">{{ student.name }}</td>
+                                <td class="whitespace-nowrap px-6 py-4">{{ student.usn }}</td>
+                                <td class="whitespace-nowrap px-6 py-4">
+                                    <ul class="list-disc pl-5">
+                                        {% for e in student.enrollment.all %}
+                                        <li>{{ e.cname }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

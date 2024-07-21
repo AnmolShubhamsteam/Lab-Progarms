@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <ul class="space-y-4 text-left text-gray-500 dark:text-black-400">
+        <h1>UNORDERD LIST</h1>
+        {% for i in li %}
+        <li class="flex items-center space-x-3 rtl:space-x-reverse">
+             <svg class="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
+             </svg>
+            <span>{{ i }}</span>
+        </li>
+        {% endfor %}
+        <br>
+    </ul>
+    <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-black">ORDERD LIST </h2>
+    <ol class="max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
+        {% for i in li2 %}
+    <li>
+        <span class="font-semibold text-gray-900 dark:text-">{{i}}</span>
+    </li>
+    {% endfor %}
+</ol>
+</body>
+</html>
