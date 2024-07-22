@@ -8,5 +8,5 @@ class ListV(ListView):
 
 class DetailV(DetailView):
     model=Student
-    template_name="students.html"
+    template_name="student.html"
     
